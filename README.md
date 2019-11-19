@@ -16,90 +16,11 @@ yarn add react-native-pinch
 
 ## Automatically link
 
-#### With React Native 0.27+
+#### With React Native 0.60+
 
 ```shell
-react-native link react-native-pinch
-```
-
-#### With older versions of React Native
-
-You need [`rnpm`](https://github.com/rnpm/rnpm) (`npm install -g rnpm`)
-
-```shell
-rnpm link react-native-pinch
-```
-
-## Manually link
-
-### iOS (via Cocoa Pods)
-Add the following line to your build targets in your `Podfile`
-
-`pod 'RNPinch', :path => '../node_modules/react-native-pinch'`
-
-Then run `pod install`
-
-### Android
-
-- in `android/app/build.gradle`:
-
-```diff
-dependencies {
-    ...
-    compile "com.facebook.react:react-native:+"  // From node_modules
-+   compile project(':react-native-pinch')
-}
-```
-
-- in `android/settings.gradle`:
-
-```diff
-...
-include ':app'
-+ include ':react-native-pinch'
-+ project(':react-native-pinch').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-pinch/android')
-```
-
-#### With React Native 0.29+
-
-- in `MainApplication.java`:
-
-```diff
-+ import com.localz.PinchPackage;
-
-  public class MainApplication extends Application implements ReactApplication {
-    //......
-
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-+         new PinchPackage(),
-          new MainReactPackage()
-      );
-    }
-
-    ......
-  }
-```
-
-#### With older versions of React Native:
-
-- in `MainActivity.java`:
-
-```diff
-+ import com.localz.PinchPackage;
-
-  public class MainActivity extends ReactActivity {
-    ......
-
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-+       new PinchPackage(),
-        new MainReactPackage()
-      );
-    }
-  }
+cd ios
+pod install
 ```
 
 ## Adding certificates
